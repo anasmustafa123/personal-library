@@ -17,7 +17,7 @@ function Book(title, author, pages, theStatus) {
 function addNewBook(e) {
   e.preventDefault();
   console.log("add book");
-  library.push(new Book(title, author, pages, theStatus));
+  library.push(new Book(title.value, author.value, pages.value, theStatus.value));
   const newBook = document.createElement("div");
   newBook.classList.add("main-grid-item");
   newBook.setAttribute("id", `${library.length}`);
@@ -43,11 +43,15 @@ function addNewBook(e) {
   newBook.appendChild(removeButton);
   cardsContainer.appendChild(newBook);
   clearInputFields();
+  console.log(library)
 }
 function clearInputFields() {
-  for (let i = 0; i < submitForm.length;i++){
+  for (let i = 0; i < submitForm.length-1;i++){
     submitForm.elements[i].value = "";
   }
+}
+function removeBook() {
+
 }
 
 submitForm.addEventListener("submit", (e) => addNewBook(e));
