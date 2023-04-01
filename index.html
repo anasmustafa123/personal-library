@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="./normalize/normalize.css">
-    <script src="./script/script.js"></script>
+    <script src="./script/script.js" defer></script>
     <link rel="shortcut icon" href="./imgs/books.png" type="image/x-icon">
     <title>personal-library</title>
 </head>
@@ -47,47 +47,43 @@
             <h1 class="logo-name">Library</h1>
         </div>
         <div class="data-container">
-            
+            <form class="add-new-book" action="">
+                <div>
+                    <label for="title">title:</label>
+                    <input type="text" name="title" id="title" placeholder="title" required>
+                </div>
+                <div>
+                    <label for="author">author:</label>
+                    <input type="text" name="author" id="author" placeholder="author" required>    
+                </div>
+                <div>
+                    <label for="pages">pages: </label>
+                    <input type="number" name="pages" id="pages" placeholder= "num of pages"> 
+                </div>
+                <div>
+                    <label for="reading-status">reading status:</label>
+                    <select name="status" id="reading-status" class="reading-status">
+                        <option value="to-read" selected>to read</option>
+                        <option value="reading">reading</option>
+                        <option value="finished">finished</option>
+                    </select>
+                </div>
+                <div class="add-container">
+                    <button type="submit" id="add-book-button">add</button>
+                </div>
+            </form>
+
         </div>
         
     </div>
     <div class="main-body">
         <div class="left-main">
             <div class="main-grid-item">
-                <div class="title">title </div>
-                <div class="author">author</div>
-                <div class="pages">pages</div>
-                <div class="status">status</div>
-            </div>
-            <div class="main-grid-item">
-                <div class="title">title </div>
-                <div class="author">author</div>
-                <div class="pages">pages</div>
-                <div class="status">status</div>
-            </div>
-            <div class="main-grid-item">
-                <div class="title">title </div>
-                <div class="author">author</div>
-                <div class="pages">pages</div>
-                <div class="status">status</div>
-            </div>
-            <div class="main-grid-item">
-                <div class="title">title </div>
-                <div class="author">author</div>
-                <div class="pages">pages</div>
-                <div class="status">status</div>
-            </div>
-            <div class="main-grid-item">
-                <div class="title">title </div>
-                <div class="author">author</div>
-                <div class="pages">pages</div>
-                <div class="status">status</div>
-            </div>
-            <div class="main-grid-item">
-                <div class="title">title </div>
-                <div class="author">author</div>
-                <div class="pages">pages</div>
-                <div class="status">status</div>
+                <div class="title">atomic habits </div>
+                <div class="author">james something</div>
+                <div class="pages">150</div>
+                <div class="reading-status">reading</div>
+                <button class="remove-card clickable">remove</button>
             </div>
         </div>
         <div class="right-main">
