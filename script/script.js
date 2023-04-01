@@ -16,7 +16,6 @@ function Book(title, author, pages, theStatus) {
 
 function addNewBook(e) {
   e.preventDefault();
-  console.log("add book");
   library.push(new Book(title.value, author.value, pages.value, theStatus.value));
   const newBook = document.createElement("div");
   newBook.classList.add("main-grid-item");
@@ -36,6 +35,7 @@ function addNewBook(e) {
   pagesNode.textContent = pages.value;
   statusNode.textContent = theStatus.value;
   removeButton.textContent = "remove";
+  removeButton.addEventListener("click",(e) =>removeBook(e))
   newBook.appendChild(titleNode);
   newBook.appendChild(authorNode);
   newBook.appendChild(pagesNode);
@@ -43,15 +43,14 @@ function addNewBook(e) {
   newBook.appendChild(removeButton);
   cardsContainer.appendChild(newBook);
   clearInputFields();
-  console.log(library)
 }
 function clearInputFields() {
-  for (let i = 0; i < submitForm.length-1;i++){
+  for (let i = 0; i < submitForm.length-2;i++){
     submitForm.elements[i].value = "";
   }
 }
-function removeBook() {
-
+function removeBook(e) {
+  e.target.parentNode.remove();
 }
 
 submitForm.addEventListener("submit", (e) => addNewBook(e));
