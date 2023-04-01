@@ -58,11 +58,11 @@
                 </div>
                 <div>
                     <label for="pages">pages: </label>
-                    <input type="number" name="pages" id="pages" placeholder= "num of pages"> 
+                    <input type="number" name="pages" id="pages" placeholder= "num of pages" > 
                 </div>
                 <div>
                     <label for="reading-status">reading status:</label>
-                    <select name="status" id="reading-status" class="reading-status">
+                    <select name="status" id="reading-status" class="reading-status" required>
                         <option value="to-read" selected>to read</option>
                         <option value="reading">reading</option>
                         <option value="finished">finished</option>
@@ -71,21 +71,12 @@
                 <div class="add-container">
                     <button type="submit" id="add-book-button">add</button>
                 </div>
+                <div class="main-grid-item  to-read"></div>
             </form>
-
-        </div>
-        
+        </div>   
     </div>
     <div class="main-body">
-        <div class="left-main">
-            <div class="main-grid-item">
-                <div class="title">atomic habits </div>
-                <div class="author">james something</div>
-                <div class="pages">150</div>
-                <div class="reading-status">reading</div>
-                <button class="remove-card clickable">remove</button>
-            </div>
-        </div>
+        <div class="left-main"></div>
         <div class="right-main">
             <div class="quotes">
                 <section>
