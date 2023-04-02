@@ -109,8 +109,6 @@ div.logo-container > h1.logo-name {
   font-size: 36px;
 }
 .main-body {
-  display: grid;
-  grid-template: 1fr / 3fr 1fr;
   padding: 32px;
 }
 .left-main {
