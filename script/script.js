@@ -1,6 +1,7 @@
 let library = [];
 let statusOptions = ["to-read", "reading", "finished"];
 let selectedCards = []
+
 const cardsContainer = document.querySelector(".left-main");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
@@ -10,6 +11,11 @@ const submitForm = document.getElementById("add-new-book");
 const searchButton = document.querySelector(".search-img-container");
 const searchField = document.querySelector("input.search");
 const editButton = document.querySelector(".edit-button");
+const openInputModelButtons = document.querySelectorAll('[data-model-target]');
+const closeInputModelButtons = document.querySelectorAll('[data-close-button]');
+const overlay = document.getElementById  ('overlay');
+
+
 function Book(title, author, pages, theStatus,cardNode) {
   this.title = title;
   this.author = author;
@@ -17,6 +23,47 @@ function Book(title, author, pages, theStatus,cardNode) {
   this.theStatus = theStatus;
   this.cardNode = cardNode
 }
+overlay.addEventListener("click", () => {
+  const inputModels = document.querySelectorAll(".input-model.active");
+  inputModels.forEach(inputModel => {
+    closeModel(inputModel);
+  })
+})
+
+openInputModelButtons.forEach(button =>{
+  button.addEventListener("click", ()=> {
+    const inputModel = document.querySelector(button.dataset.modelTarget);
+    openModel(inputModel);
+  })
+})
+
+closeInputModelButtons.forEach(button =>{
+  button.addEventListener("click", ()=> {
+    const inputModel = button.closest(".input-model.active");
+    closeModel(inputModel);
+  })
+})
+
+function openModel(model){
+ if(model == null) return;
+ model.classList.add("active");
+ overlay.classList.add("active");
+}
+function closeModel(model){
+  if(model == null) return;
+  model.classList.remove("active");
+  overlay.classList.remove("active");
+ }
+
+editButton.addEventListener("click", (e) => editCard(e.target.closest("input.search")));
+searchButton.addEventListener("click",() => searchSelected());
+submitForm.addEventListener("submit", (e) => {
+  addNewBook(e);
+/*   const inputModel = e.target.closest(".input-model.active");
+  closeModel(inputModel); */
+});
+
+
 function createNewElement(type, className, content) {
   const element = document.createElement(type);
   element.classList.add(className);
@@ -26,7 +73,8 @@ function createNewElement(type, className, content) {
 function addNewBook(e) {
   e.preventDefault();
   let newBook = createNewElement("div", "main-grid-item", "");
-  let tempBook = search(title.value);
+  let tempBook = search();
+  console.log(` ${tempBook} `)
   if(tempBook != undefined){
     removeBook(tempBook.cardNode);
   }
@@ -50,6 +98,7 @@ function addNewBook(e) {
   cardsContainer.appendChild(newBook);
   clearInputFields();
 }
+
 function clearInputFields() {
   for (let i = 0; i < submitForm.length - 2; i++) {
     submitForm.elements[i].value = "";
@@ -57,29 +106,20 @@ function clearInputFields() {
 }
 function removeBook(card) {
   card.remove();
-  console.log(library.filter((temp) => temp.cardNode == card))
-  library.splice(library.indexOf(library.filter((temp) => temp.cardNode == card)), 1);
+  library.splice(parseInt(card.getAttribute("id")), 1);
 }
 function changeStatus(e) {
   let next = (parseInt(e.target.parentNode.getAttribute("status")) + 1) % 3;
+  let place = parseInt(e.target.parentNode.getAttribute("id"));
+  library[place].theStatus = statusOptions[next]
   e.target.parentNode.setAttribute("status", next);
   e.target.textContent = statusOptions[next]
 }
-function select(){
+function searchSelected(){
   let element = search();
   if(selectedCards.length != 0){
-    console.log("element removed from the list")
     removeSelectedCard();
-  }
-  else{
-    console.log("you don't have a previous search")
-  }
-  console.log(element)
-  if(element == undefined){
-    console.log("element was not found")
-  }
-  else{
-    console.log("found");
+  }else{
     element.cardNode.classList.add('selected');
     selectedCards.push(element);
   }
@@ -98,20 +138,14 @@ function removeSelectedCard(){
 }
 function editCard(){
   if(selectedCards.length != 0){
+    console.log("actually entered")
     moveDataOf(selectedCards[0]);
     removeSelectedCard();
   }
 }
 function moveDataOf(card){
-  console.log(card.title)
-  console.log(card.author)
-  console.log(card.pages)
-  console.log(card.theStatus)
   title.value = card.title;
   author.value = card.author;
   pages.value = card.pages;
   theStatus.value = card.theStatus;
 }
-editButton.addEventListener("click", (e) => editCard(e.target.parentNode));
-searchButton.addEventListener("click",() => select());
-submitForm.addEventListener("submit", (e) => addNewBook(e));

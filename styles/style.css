@@ -1,6 +1,7 @@
 body {
+  box-sizing: border-box;
   display: grid;
-  grid-template: 1fr 5fr / 1fr 4fr;
+  grid-template-rows: 1fr 5fr ;
   width: 100%;
   height: 100vh;
   font-family: "Rubik", sans-serif;
@@ -22,14 +23,7 @@ p {
   height: 65px;
   border-radius: 132px;
 }
-div.sidebar {
-  grid-area: 1 / 1 / 3;
-  background: rgb(14 14 12 / 80%);
-  overflow: hidden;
-  min-width: 300px;
-  padding-left: 24px;
-  padding-top: 16px;
-}
+
 .main-header {
   display: flex;
   flex-direction: column;
@@ -106,6 +100,7 @@ div.logo-container {
 }
 div.logo-container > h1.logo-name {
   font-size: 36px;
+  margin: 0px;
 }
 .logo-container > img.main-logo {
   max-width: 50px;
@@ -167,7 +162,6 @@ div.logo-container > h1.logo-name {
   gap: 32px;
 }
 div.main-body {
-  grid-area: 2 / 2;
   background: #ededed;
 }
 .clickable:hover {
@@ -181,23 +175,68 @@ div.main-body {
   display: flex;
   flex-direction: column;
   gap: 50px;
-  margin-top: 300px;
 }
 #add-new-book > div {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 80%;
 }
 #add-new-book > div input {
   padding-left: 5px;
 }
 #add-new-book > div input,
 div button {
-  height: 35px;
+  height: 30px;
   border-radius: 11px;
 }
-#add-new-book > div label {
-  color: white;
+.input-model {
+  position: fixed;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  padding: 30px;
+  border-radius: 12px;
+  transform: translate(-50%,-50%) scale(0);
+  z-index: 10;
+  width: 400px;
+  max-width: 40vw;
+  border: 1px solid black;
+}
+.input-model.active{
+  transform: translate(-50%,-50%) scale(1);
+  transition: 200ms ease-in-out;
+}
+.input-model > .model-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.input-model > .model-header > div.model-title{
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.input-model > .model-header .close-button{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+#overlay{
+  position: fixed;
+  opacity: 0; 
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+#overlay.active{
+  pointer-events: all;
+  opacity: 1;
+  transition: 200ms ease-in-out;
 }
 div.main-grid-item > button.status,button.remove-card {
   width: 85%;

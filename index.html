@@ -11,51 +11,56 @@
     <title>personal-library</title>
 </head>
 <body>
-<div class="main-header">
+    <div class="main-header">
+        <div class = "logo-container">
+            <img src="./imgs/online-library.png" alt="dashboard logo" class="main-logo">
+            <h1 class="logo-name">Library</h1>
+        </div>
         <div class="search-container">
             <div class="search-img-container clickable">
                 <img src="./imgs/search.svg" alt="search logo" class="logo">
             </div>
             <input type="search" name="" id="" class="search">
             <div class="header-buttons">
-                <button class="edit-button clickable">edit</button>
+                <button data-model-target = "#input-model" class="edit-button clickable">edit</button>
+                <button data-model-target = "#input-model" class="new-book  clickable">new</button>
             </div>
         </div>
     </div>
-    <div class="sidebar">
-        <div class = "logo-container">
-            <img src="./imgs/online-library.png" alt="dashboard logo" class="main-logo">
-            <h1 class="logo-name">Library</h1>
-        </div>
-        <div class="data-container">
-            <form id="add-new-book" action="">
-                <div>
-                    <label for="title">title:</label>
-                    <input type="text" name="title" id="title" placeholder="title" required>
-                </div>
-                <div>
-                    <label for="author">author:</label>
-                    <input type="text" name="author" id="author" placeholder="author" required>    
-                </div>
-                <div>
-                    <label for="pages">pages: </label>
-                    <input type="number" name="pages" id="pages" placeholder= "num of pages" > 
-                </div>
-                <div>
-                    <label for="reading-status">reading status:</label>
-                    <select name="status" id="reading-status" class="reading-status" required>
-                        <option value="to-read" selected>to read</option>
-                        <option value="reading">reading</option>
-                        <option value="finished">finished</option>
-                    </select>
-                </div>
-                <div class="add-container">
-                    <button type="submit" id="add-book-button">add</button>
-                </div>
-                <div class="main-grid-item  to-read"></div>
-            </form>
-        </div>   
+    <div class="input-model " id="input-model">
+        <div class="model-header">
+            <div class="model-title">Enter Book Info</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>--
+        <form id="add-new-book" action="">
+            <div>
+                <label for="title">title:</label>
+                <input type="text" name="title" id="title" placeholder="title" required>
+            </div>
+            <div>
+                <label for="author">author:</label>
+                <input type="text" name="author" id="author" placeholder="author" required>    
+            </div>
+            <div>
+                <label for="pages">pages: </label>
+                <input type="number" name="pages" id="pages" placeholder= "num of pages" > 
+            </div>
+            <div>
+                <label for="reading-status">reading status:</label>
+                <select name="status" id="reading-status" class="reading-status" required>
+                    <option value="to-read" selected>to read</option>
+                    <option value="reading">reading</option>
+                    <option value="finished">finished</option>
+                </select>
+            </div>
+            <div class="add-container">
+                <button type="submit" id="add-book-button">add</button>
+            </div>
+            <div class="main-grid-item  to-read"></div>
+        </form>
     </div>
+    <div id="overlay"></div> 
+  
     <div class="main-body">
         <div class="left-main"></div>
     </div>
