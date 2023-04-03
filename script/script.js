@@ -20,6 +20,8 @@ const openInputModelButtons = document.querySelectorAll("[data-model-target]");
 const closeInputModelButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
 const removeSelectedCards = document.querySelectorAll("[remove-selected]");
+const toggleSideBarButton = document.querySelector("button.statistics-button");
+const hideSideBar = document.querySelectorAll("[data-hide-statistics]");
 
 function addBookToLibrary(title, author, pages, status) {
   if (searchedBook.active == 1) {
@@ -203,3 +205,21 @@ function closeModel(model) {
   model.classList.remove("active");
   overlay.classList.remove("active");
 }
+
+toggleSideBarButton.addEventListener("click", () => {
+  const statisticsBar = document.querySelector(".right-main");
+  if(statisticsBar.classList.contains("visible")){
+    toggleSideBarButton.textContent = "show statistics"
+  }else{
+    toggleSideBarButton.textContent = "hide statistics"
+  }
+  statisticsBar.classList.toggle("visible");
+})
+
+hideSideBar.forEach((element) => { 
+  element.addEventListener("click" , () => {
+    const statisticsBar = document.querySelector(".right-main.visible");
+    statisticsBar.classList.remove("visible");
+    toggleSideBarButton.textContent = "show statistics"
+  });
+});

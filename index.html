@@ -17,7 +17,7 @@
             <h1 class="logo-name">Library</h1>
         </div>
         <div class="search-container">
-            <div class="search-img-container clickable">
+            <div data-hide-statistics class="search-img-container clickable">
                 <img src="./imgs/search.svg" alt="search logo" class="logo">
             </div>
             <div class="input-field-container">
@@ -25,8 +25,8 @@
                 <div class="search-text"></div> 
             </div>
             <div class="header-buttons">
-                <button remove-selected data-model-target = "#input-model" class="edit-button clickable">edit</button>
-                <button remove-selected data-model-target = "#input-model" class="new-book  clickable">new</button>
+                <button data-hide-statistics remove-selected data-model-target = "#input-model" class="edit-button clickable">edit</button>
+                <button data-hide-statistics remove-selected data-model-target = "#input-model" class="new-book  clickable">new</button>
             </div>
         </div>
     </div>
@@ -66,6 +66,9 @@
   
     <div remove-selected class="main-body">
         <div class="left-main"></div>
+        <div class="right-main">
+            <button class="statistics-button">show statistics</button>
+        </div>
     </div>
 </body>
 </html>

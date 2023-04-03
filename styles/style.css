@@ -108,9 +108,6 @@ div.logo-container > h1.logo-name {
 div.logo-container > h1.logo-name {
   font-size: 36px;
 }
-.main-body {
-  padding: 32px;
-}
 .left-main {
   display: grid;
   grid-template: repeat(auto-fit, 260px) / repeat(auto-fill, minmax(350px, 1fr));
@@ -118,6 +115,8 @@ div.logo-container > h1.logo-name {
   grid-auto-rows: 260px;
   justify-content: center;
   gap: 24px;
+  padding: 32px 55px 32px 55px;
+  width: 100%;
 }
 .left-main > div.main-grid-item {
   padding: 30px;
@@ -135,12 +134,7 @@ div.logo-container > h1.logo-name {
 .left-main > div.main-grid-item > div {
   font-size: 20px;
 }
-.right-main {
-  display: grid;
-  grid-template: 0fr 0fr / 85%;
-  justify-content: center;
-  gap: 50px;
-}
+
 .quotes {
   background-color: white;
   padding: 32px;
@@ -297,4 +291,29 @@ div.main-body > div.left-main > .selected {
   font-size: 14px;
   transform: scale(1);
   transition: 300ms ease-in-out;
+}
+div.main-body {
+  display: flex;
+}
+div.right-main {
+  position: relative;
+  background: grey;
+  width: 0px;
+  transition: 300ms ease-in-out;
+}
+
+div.right-main.visible {
+  width: 350px;
+}
+.statistics-button {
+  position: absolute;
+  transform: rotate(-90deg);
+  left: -79px;
+  top: 104px;
+  height: 24px;
+  width: 134px;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  cursor:pointer;
 }
