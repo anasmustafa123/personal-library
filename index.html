@@ -20,10 +20,13 @@
             <div class="search-img-container clickable">
                 <img src="./imgs/search.svg" alt="search logo" class="logo">
             </div>
-            <input type="search" name="" id="" class="search">
+            <div class="input-field-container">
+                <input type="search" name="" id="" class="search">
+                <div class="search-text"></div> 
+            </div>
             <div class="header-buttons">
-                <button data-model-target = "#input-model" class="edit-button clickable">edit</button>
-                <button data-model-target = "#input-model" class="new-book  clickable">new</button>
+                <button remove-selected data-model-target = "#input-model" class="edit-button clickable">edit</button>
+                <button remove-selected data-model-target = "#input-model" class="new-book  clickable">new</button>
             </div>
         </div>
     </div>
@@ -61,7 +64,7 @@
     </div>
     <div id="overlay"></div> 
   
-    <div class="main-body">
+    <div remove-selected class="main-body">
         <div class="left-main"></div>
     </div>
 </body>

@@ -11,13 +11,15 @@ function Book(title, author, pages, status) {
   this.pages = pages;
   this.status = status;
 }
-const submitButton = document.getElementById("add-book-button");
+/* const submitButton = document.getElementById("add-book-button"); */
+const searchInput = document.querySelector("input.search");
 const editButton = document.querySelector(".edit-button");
 const searchButton = document.querySelector(".search-img-container");
 const submitForm = document.getElementById("add-new-book");
 const openInputModelButtons = document.querySelectorAll("[data-model-target]");
 const closeInputModelButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
+const removeSelectedCards = document.querySelectorAll("[remove-selected]");
 
 function addBookToLibrary(title, author, pages, status) {
   if (searchedBook.active == 1) {
@@ -80,21 +82,53 @@ searchButton.addEventListener("click", () => search());
 
 editButton.addEventListener("click", () => editCard());
 
+removeSelectedCards.forEach((element) => {
+  element.addEventListener("click", () => {
+    removeSelected();
+  });
+});
+
+searchInput.addEventListener("click", () => {
+  const searchErrorMessage = document.querySelector(".search-text");
+  searchErrorMessage.classList.remove("notFound");
+});
+
 function search() {
   const searchInput = document.querySelector("input.search");
   const searchTitle = searchInput.value;
-  let books = library.filter(
-    (book) => book.title.toLowerCase() == searchTitle.toLowerCase()
-  );
-  if (books.length != 0) {
-    const card = document.querySelector(
-      `[data-id= "${library.indexOf(books[0])}"]`
+  if (searchTitle == "") {
+    showSearchErrorMessage("empty search");
+    removeSelected();
+  } else {
+    let books = library.filter(
+      (book) => book.title.toLowerCase() == searchTitle.toLowerCase()
     );
-    if (card) {
-      card.classList.add("selected");
+    if (books.length != 0) {
+      const card = document.querySelector(
+        `[data-id= "${library.indexOf(books[0])}"]`
+      );
+      if (card) {
+        card.classList.add("selected");
+      }
+      searchedBook.book = books[0];
+    } else {
+      showSearchErrorMessage("no book exist with that title");
+      removeSelected();
     }
-    searchedBook.book = books[0];
   }
+}
+
+function removeSelected() {
+  const selectedCard = document.querySelector(".selected");
+  if (selectedCard != undefined) {
+    selectedCard.classList.remove("selected");
+  }
+}
+
+function showSearchErrorMessage(message) {
+  const searchErrorMessage = document.querySelector(".search-text");
+  searchErrorMessage.textContent = message;
+  searchErrorMessage.classList.add("notFound");
 }
 
 function changeStatus(e) {

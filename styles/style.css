@@ -1,7 +1,7 @@
 body {
   box-sizing: border-box;
   display: grid;
-  grid-template-rows: 1fr 5fr ;
+  grid-template-rows: 1fr 5fr;
   width: 100%;
   height: 100vh;
   font-family: "Rubik", sans-serif;
@@ -56,7 +56,7 @@ div.header-buttons {
   gap: 24px;
   height: 100%;
 }
-div.search-container > div.search-img-container{
+div.search-container > div.search-img-container {
   display: flex;
   width: 32px;
   height: 100%;
@@ -194,26 +194,26 @@ div button {
   left: 50%;
   padding: 30px;
   border-radius: 12px;
-  transform: translate(-50%,-50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
   z-index: 10;
   width: 400px;
   max-width: 40vw;
   border: 1px solid black;
 }
-.input-model.active{
-  transform: translate(-50%,-50%) scale(1);
+.input-model.active {
+  transform: translate(-50%, -50%) scale(1);
   transition: 200ms ease-in-out;
 }
-.input-model > .model-header{
+.input-model > .model-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.input-model > .model-header > div.model-title{
+.input-model > .model-header > div.model-title {
   font-size: 1.3rem;
   font-weight: bold;
 }
-.input-model > .model-header .close-button{
+.input-model > .model-header .close-button {
   cursor: pointer;
   border: none;
   outline: none;
@@ -221,9 +221,9 @@ div button {
   font-size: 1.3rem;
   font-weight: bold;
 }
-#overlay{
+#overlay {
   position: fixed;
-  opacity: 0; 
+  opacity: 0;
   top: 0;
   bottom: 0;
   right: 0;
@@ -231,12 +231,13 @@ div button {
   background-color: rgba(0, 0, 0, 0.5);
   pointer-events: none;
 }
-#overlay.active{
+#overlay.active {
   pointer-events: all;
   opacity: 1;
   transition: 200ms ease-in-out;
 }
-div.main-grid-item > button.status,button.remove-card {
+div.main-grid-item > button.status,
+button.remove-card {
   width: 85%;
   height: 40px;
   border-radius: 20px;
@@ -247,12 +248,12 @@ div.main-grid-item > button.status,button.remove-card {
   font-size: 17px;
   color: var(--button-text-color);
 }
-div.main-body > div.left-main > .selected{
+div.main-body > div.left-main > .selected {
   transform: scale(1.04);
   box-shadow: 0px 0px 12px 1px var(--selected-card-color);
 }
 .main-grid-item[status="0"] {
-  --button-background: #307470;;
+  --button-background: #307470;
   --button-text-color: #9ae17b;
   --card-background: #9ae17b;
   --card-text-color: #42476d;
@@ -276,3 +277,24 @@ div.main-body > div.left-main > .selected{
   --selected-card-color: blue;
 }
 
+.input-field-container {
+  height: 100%;
+}
+.input-field-container > input.search {
+  border-color: #3f3b3b;
+  height: 100%;
+  width: min(500px, 30vw);
+  border-radius: 29px;
+  padding: 9px;
+  box-shadow: 1px 1px 5px 0px #705e5e;
+}
+.input-field-container > .search-text {
+  transform: scale(0);
+  transition: 300ms ease-in-out;
+}
+.input-field-container > .search-text.notFound {
+  color: red;
+  font-size: 14px;
+  transform: scale(1);
+  transition: 300ms ease-in-out;
+}
