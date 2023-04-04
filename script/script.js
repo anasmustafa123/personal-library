@@ -1,3 +1,4 @@
+console.log("fsa");
 let library = [];
 let statusOptions = ["to-read", "reading", "finished"];
 var searchedBook = {
@@ -17,11 +18,13 @@ function getBookCountWithStatus(status) {
 
 function adjustBookCount() {
   document.querySelector(".totalCount").innerHTML = library.length;
-  document.querySelector(".readingCount").innerHTML = getBookCountWithStatus("reading");
-  document.querySelector(".toReadCount").innerHTML = getBookCountWithStatus("to-read");
-  document.querySelector(".finishedCount").innerHTML = getBookCountWithStatus("finished"); 
+  document.querySelector(".readingCount").innerHTML =
+    getBookCountWithStatus("reading");
+  document.querySelector(".toReadCount").innerHTML =
+    getBookCountWithStatus("to-read");
+  document.querySelector(".finishedCount").innerHTML =
+    getBookCountWithStatus("finished");
 }
-
 
 function Book(title, author, pages, status) {
   this.title = title;
@@ -40,6 +43,30 @@ const overlay = document.getElementById("overlay");
 const removeSelectedCards = document.querySelectorAll("[remove-selected]");
 const toggleSideBarButton = document.querySelector("button.statistics-button");
 const hideSideBar = document.querySelectorAll("[data-hide-statistics]");
+
+//for existing card
+const existingCards = document.querySelectorAll(".left-main .main-grid-item");
+existingCards.forEach((card) => {
+  const theTitle = card.querySelector(".title");
+  const author = card.querySelector(".author");
+  const pages = card.querySelector(".pages");
+  const status = card.querySelector(".status");
+  const remove = card.querySelector(".remove-card");
+  status.addEventListener("click", (e) => {
+    changeStatus(e);
+    displayAllBooks();
+  });
+  remove.addEventListener("click", (e) => {
+    removeBook(e);
+    displayAllBooks();
+  });
+  addBookToLibrary(
+    theTitle.textContent,
+    author.textContent,
+    pages.textContent,
+    status.textContent
+  );
+});
 
 function addBookToLibrary(title, author, pages, status) {
   if (searchedBook.active == 1) {
