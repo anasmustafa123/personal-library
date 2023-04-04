@@ -305,10 +305,12 @@ div.right-main {
   background: #5dacbd;
   width: 0px;
   transition: 300ms ease-in-out;
+  --table-width: scale(0);
 }
 
 div.right-main.visible {
   width: 350px;
+  --table-width: scale(1);
 }
 .statistics-button {
   position: absolute;
@@ -339,4 +341,5 @@ div.right-main.visible {
   align-items: flex-start;
   justify-content: space-evenly;
   border-radius: 12px;
+  transform: var(--table-width);
 }
