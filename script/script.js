@@ -127,6 +127,13 @@ submitForm.addEventListener("submit", (e) => {
 });
 
 searchButton.addEventListener("click", () => search());
+searchInput.addEventListener("keypress", (event) => {
+  if(event.key == 'Enter'){
+    event.preventDefault();
+    searchButton.click();
+  }
+});
+
 
 editButton.addEventListener("click", () => editCard());
 

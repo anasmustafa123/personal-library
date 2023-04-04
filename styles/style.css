@@ -123,6 +123,7 @@ div.logo-container > h1.logo-name {
   text-align: start;
   background: var(--card-background);
   border-left: 11px solid var(--card-border-left-color);
+  border-right: 11px solid var(--card-border-left-color);
   border-radius: 16px;
   box-shadow: 2px 5px 10px #c0c0c0c0;
   display: flex;
@@ -234,7 +235,7 @@ div button {
 div.main-grid-item > button.status,
 button.remove-card {
   width: 85%;
-  height: 40px;
+  min-height: 30px;
   border-radius: 20px;
   text-align: center;
   font-weight: bold;
