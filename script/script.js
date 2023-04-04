@@ -5,6 +5,24 @@ var searchedBook = {
   book: undefined,
 };
 
+function getBookCountWithStatus(status) {
+  let count = 0;
+  library.forEach((book) => {
+    if (book.status == status) {
+      count++;
+    }
+  });
+  return count;
+}
+
+function adjustBookCount() {
+  document.querySelector(".totalCount").innerHTML = library.length;
+  document.querySelector(".readingCount").innerHTML = getBookCountWithStatus("reading");
+  document.querySelector(".toReadCount").innerHTML = getBookCountWithStatus("to-read");
+  document.querySelector(".finishedCount").innerHTML = getBookCountWithStatus("finished"); 
+}
+
+
 function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
@@ -33,6 +51,7 @@ function addBookToLibrary(title, author, pages, status) {
   } else {
     library.push(new Book(title, author, pages, status));
   }
+  adjustBookCount();
 }
 function displayAllBooks() {
   const cardsContainer = document.querySelector(".left-main");
@@ -139,6 +158,7 @@ function changeStatus(e) {
   let next = (parseInt(card.getAttribute("status")) + 1) % 3;
   library[index].status = statusOptions[next];
   card.setAttribute("status", next);
+  adjustBookCount();
 }
 
 function removeBook(e) {
@@ -146,6 +166,7 @@ function removeBook(e) {
     parseInt(e.target.closest(".main-grid-item").getAttribute("data-id")),
     1
   );
+  adjustBookCount();
 }
 
 function clearInputFields() {
@@ -208,18 +229,18 @@ function closeModel(model) {
 
 toggleSideBarButton.addEventListener("click", () => {
   const statisticsBar = document.querySelector(".right-main");
-  if(statisticsBar.classList.contains("visible")){
-    toggleSideBarButton.textContent = "show statistics"
-  }else{
-    toggleSideBarButton.textContent = "hide statistics"
+  if (statisticsBar.classList.contains("visible")) {
+    toggleSideBarButton.textContent = "show statistics";
+  } else {
+    toggleSideBarButton.textContent = "hide statistics";
   }
   statisticsBar.classList.toggle("visible");
-})
+});
 
-hideSideBar.forEach((element) => { 
-  element.addEventListener("click" , () => {
+hideSideBar.forEach((element) => {
+  element.addEventListener("click", () => {
     const statisticsBar = document.querySelector(".right-main.visible");
     statisticsBar.classList.remove("visible");
-    toggleSideBarButton.textContent = "show statistics"
+    toggleSideBarButton.textContent = "show statistics";
   });
 });

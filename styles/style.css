@@ -296,6 +296,10 @@ div.main-body {
   display: flex;
 }
 div.right-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   position: relative;
   background: grey;
   width: 0px;
@@ -316,4 +320,21 @@ div.right-main.visible {
   background: black;
   color: white;
   cursor:pointer;
+}
+
+.table-line{
+  display: flex;
+  margin-left: 18px;
+  gap: 24px;
+}
+.right-main > .table1 , .table2{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: white;
+  width: 90%;
+  height: 220px;
+  align-items: flex-start;
+  justify-content: space-around;
+  border-radius: 12px;
 }

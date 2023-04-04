@@ -1,74 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="./normalize/normalize.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="./normalize/normalize.css" />
     <script src="./script/script.js" defer></script>
-    <link rel="shortcut icon" href="./imgs/books.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./imgs/books.png" type="image/x-icon" />
     <title>personal-library</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-header">
-        <div class = "logo-container">
-            <img src="./imgs/online-library.png" alt="dashboard logo" class="main-logo">
-            <h1 class="logo-name">Library</h1>
+      <div class="logo-container">
+        <img
+          src="./imgs/online-library.png"
+          alt="dashboard logo"
+          class="main-logo"
+        />
+        <h1 class="logo-name">Library</h1>
+      </div>
+      <div class="search-container">
+        <div data-hide-statistics class="search-img-container clickable">
+          <img src="./imgs/search.svg" alt="search logo" class="logo" />
         </div>
-        <div class="search-container">
-            <div data-hide-statistics class="search-img-container clickable">
-                <img src="./imgs/search.svg" alt="search logo" class="logo">
-            </div>
-            <div class="input-field-container">
-                <input type="search" name="" id="" class="search">
-                <div class="search-text"></div> 
-            </div>
-            <div class="header-buttons">
-                <button data-hide-statistics remove-selected data-model-target = "#input-model" class="edit-button clickable">edit</button>
-                <button data-hide-statistics remove-selected data-model-target = "#input-model" class="new-book  clickable">new</button>
-            </div>
+        <div class="input-field-container">
+          <input type="search" name="" id="" class="search" />
+          <div class="search-text"></div>
         </div>
+        <div class="header-buttons">
+          <button
+            data-hide-statistics
+            remove-selected
+            data-model-target="#input-model"
+            class="edit-button clickable"
+          >
+            edit
+          </button>
+          <button
+            data-hide-statistics
+            remove-selected
+            data-model-target="#input-model"
+            class="new-book clickable"
+          >
+            new
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="input-model " id="input-model">
-        <div class="model-header">
-            <div class="model-title">Enter Book Info</div>
-            <button data-close-button class="close-button">&times;</button>
-        </div>--
-        <form id="add-new-book" action="">
-            <div>
-                <label for="title">title:</label>
-                <input type="text" name="title" id="title" placeholder="title" required>
-            </div>
-            <div>
-                <label for="author">author:</label>
-                <input type="text" name="author" id="author" placeholder="author" required>    
-            </div>
-            <div>
-                <label for="pages">pages: </label>
-                <input type="number" name="pages" id="pages" placeholder= "num of pages" > 
-            </div>
-            <div>
-                <label for="reading-status">reading status:</label>
-                <select name="status" id="reading-status" class="reading-status" required>
-                    <option value="to-read" selected>to read</option>
-                    <option value="reading">reading</option>
-                    <option value="finished">finished</option>
-                </select>
-            </div>
-            <div class="add-container">
-                <button type="submit" id="add-book-button">add</button>
-            </div>
-            <div class="main-grid-item  to-read"></div>
-        </form>
+    <div class="input-model" id="input-model">
+      <div class="model-header">
+        <div class="model-title">Enter Book Info</div>
+        <button data-close-button class="close-button">&times;</button>
+      </div>
+      --
+      <form id="add-new-book" action="">
+        <div>
+          <label for="title">title:</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="title"
+            required
+          />
+        </div>
+        <div>
+          <label for="author">author:</label>
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="author"
+            required
+          />
+        </div>
+        <div>
+          <label for="pages">pages: </label>
+          <input
+            type="number"
+            name="pages"
+            id="pages"
+            placeholder="num of pages"
+          />
+        </div>
+        <div>
+          <label for="reading-status">reading status:</label>
+          <select
+            name="status"
+            id="reading-status"
+            class="reading-status"
+            required
+          >
+            <option value="to-read" selected>to read</option>
+            <option value="reading">reading</option>
+            <option value="finished">finished</option>
+          </select>
+        </div>
+        <div class="add-container">
+          <button type="submit" id="add-book-button">add</button>
+        </div>
+        <div class="main-grid-item to-read"></div>
+      </form>
     </div>
-    <div id="overlay"></div> 
-  
+    <div id="overlay"></div>
+
     <div remove-selected class="main-body">
-        <div class="left-main"></div>
-        <div class="right-main">
-            <button class="statistics-button">show statistics</button>
+      <div class="left-main"></div>
+      <div class="right-main">
+        <div class="table1">
+          <div class="table-line">
+            <div class="total-books:">total book count :</div>
+            <div class="totalCount">5</div>
+          </div>
+          <div class="table-line">
+            <div class="to-read-books :">to read :</div>
+            <div class="readingCount"></div>
+          </div>
+          <div class="table-line">
+            <div class="reading-books :">reading :</div>
+            <div class="toReadCount"></div>
+          </div>
+          <div class="table-line">
+            <div class="finished-books :">finished :</div>
+            <div class="finishedCount"></div>
+          </div>
         </div>
+        <div class="table2"></div>
+        <button class="statistics-button">show statistics</button>
+      </div>
     </div>
-</body>
+  </body>
 </html>
