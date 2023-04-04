@@ -62,7 +62,7 @@ div.search-container > div.search-img-container {
   height: 100%;
   align-items: center;
   justify-content: center;
-  background: grey;
+  background: #24527a;
   border-radius: 15px;
 }
 div.header-buttons > button {
@@ -71,7 +71,7 @@ div.header-buttons > button {
   border-radius: 20px;
   text-align: center;
   font-weight: bold;
-  background: rgb(90, 93, 94);
+  background: #24527a;
   border: none;
   font-size: 17px;
   color: white;
@@ -202,6 +202,7 @@ div button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
 }
 .input-model > .model-header > div.model-title {
   font-size: 1.3rem;
@@ -301,7 +302,7 @@ div.right-main {
   align-items: center;
   justify-content: space-around;
   position: relative;
-  background: grey;
+  background: #5dacbd;
   width: 0px;
   transition: 300ms ease-in-out;
 }
@@ -317,24 +318,25 @@ div.right-main.visible {
   height: 24px;
   width: 134px;
   border-radius: 5px;
-  background: black;
+  background: #24527a;
   color: white;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.table-line{
+.table-line {
   display: flex;
   margin-left: 18px;
   gap: 24px;
 }
-.right-main > .table1 , .table2{
+.right-main > .table1,
+.table2 {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  background: white;
+  background: #a7bcb9;
   width: 90%;
   height: 220px;
   align-items: flex-start;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border-radius: 12px;
 }
