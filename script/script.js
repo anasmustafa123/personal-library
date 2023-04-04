@@ -128,12 +128,11 @@ submitForm.addEventListener("submit", (e) => {
 
 searchButton.addEventListener("click", () => search());
 searchInput.addEventListener("keypress", (event) => {
-  if(event.key == 'Enter'){
+  if (event.key == "Enter") {
     event.preventDefault();
     searchButton.click();
   }
 });
-
 
 editButton.addEventListener("click", () => editCard());
 
@@ -274,7 +273,9 @@ toggleSideBarButton.addEventListener("click", () => {
 hideSideBar.forEach((element) => {
   element.addEventListener("click", () => {
     const statisticsBar = document.querySelector(".right-main.visible");
-    statisticsBar.classList.remove("visible");
-    toggleSideBarButton.textContent = "show statistics";
+    if (statisticsBar) {
+      statisticsBar.classList.remove("visible");
+      toggleSideBarButton.textContent = "show statistics";
+    }
   });
 });
