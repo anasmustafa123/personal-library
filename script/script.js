@@ -155,7 +155,7 @@ function search() {
     removeSelected();
   } else {
     let books = library.filter(
-      (book) => book.title.toLowerCase() == searchTitle.toLowerCase()
+      (book) => book.title.replaceAll(" ","").toLowerCase() == searchTitle.replaceAll(" ","").toLowerCase()
     );
     if (books.length != 0) {
       const card = document.querySelector(
