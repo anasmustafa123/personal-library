@@ -1,3 +1,7 @@
+:root{
+  --dark-blue: #272344;
+
+}
 body {
   box-sizing: border-box;
   display: grid;
@@ -62,7 +66,7 @@ div.search-container > div.search-img-container {
   height: 100%;
   align-items: center;
   justify-content: center;
-  background: #24527a;
+  background: var(--dark-blue);
   border-radius: 15px;
 }
 div.header-buttons > button {
@@ -71,7 +75,7 @@ div.header-buttons > button {
   border-radius: 20px;
   text-align: center;
   font-weight: bold;
-  background: #24527a;
+  background: var(--dark-blue);
   border: none;
   font-size: 17px;
   color: white;
@@ -174,13 +178,11 @@ div.main-body {
   flex-direction: column;
   width: 80%;
 }
-#add-new-book > div input {
-  padding-left: 5px;
-}
-#add-new-book > div input,
-div button {
+#add-new-book > div input, div button, .reading-status {
   height: 30px;
-  border-radius: 11px;
+  border-radius: 8px;
+  background: white;
+  padding-left: 5px;
 }
 .input-model {
   position: fixed;
@@ -192,7 +194,7 @@ div button {
   transform: translate(-50%, -50%) scale(0);
   z-index: 10;
   width: 400px;
-  max-width: 40vw;
+  max-width: 50vw;
   border: 1px solid black;
 }
 .input-model.active {
@@ -321,7 +323,7 @@ div.right-main.visible {
   height: 24px;
   width: 134px;
   border-radius: 5px;
-  background: #24527a;
+  background: var(--dark-blue);
   color: white;
   cursor: pointer;
 }
