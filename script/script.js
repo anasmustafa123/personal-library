@@ -67,7 +67,7 @@ existingCards.forEach((card) => {
     status.textContent
   );
 });
-
+/*  */
 function addBookToLibrary(title, author, pages, status) {
   if (searchedBook.active == 1) {
     searchedBook.book.title = title;
@@ -80,6 +80,7 @@ function addBookToLibrary(title, author, pages, status) {
   }
   adjustBookCount();
 }
+
 function displayAllBooks() {
   const cardsContainer = document.querySelector(".left-main");
   cardsContainer.innerHTML = "";
@@ -155,7 +156,9 @@ function search() {
     removeSelected();
   } else {
     let books = library.filter(
-      (book) => book.title.replaceAll(" ","").toLowerCase() == searchTitle.replaceAll(" ","").toLowerCase()
+      (book) =>
+        book.title.replaceAll(" ", "").toLowerCase() ==
+        searchTitle.replaceAll(" ", "").toLowerCase()
     );
     if (books.length != 0) {
       const card = document.querySelector(
@@ -213,7 +216,6 @@ function removeSearchedBook() {
 function editCard() {
   if (searchedBook.book != undefined) {
     searchedBook.active = 1;
-    console.log("actually entered");
     moveDataToInputField(searchedBook.book);
   }
 }
@@ -232,6 +234,8 @@ overlay.addEventListener("click", () => {
   const inputModels = document.querySelectorAll(".input-model.active");
   inputModels.forEach((inputModel) => {
     closeModel(inputModel);
+    clearInputFields();
+    searchedBook.active = 0;
   });
 });
 
@@ -246,6 +250,8 @@ closeInputModelButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const inputModel = button.closest(".input-model.active");
     closeModel(inputModel);
+    clearInputFields();
+    searchedBook.active = 0;
   });
 });
 
