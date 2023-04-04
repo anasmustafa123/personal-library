@@ -343,3 +343,11 @@ div.right-main.visible {
   border-radius: 12px;
   transform: var(--table-width);
 }
+.left-main > div.main-grid-item > .author {
+  text-decoration: dotted;
+  font-style: italic;
+  font-size: 17px;
+}
+.left-main > div.main-grid-item > .title {
+  font-weight: bold;
+}
