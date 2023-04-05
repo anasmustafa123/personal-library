@@ -305,7 +305,7 @@ div.right-main {
   align-items: center;
   justify-content: space-around;
   position: relative;
-  background: #5dacbd;
+  background: #bae8e8;
   width: 0px;
   transition: 300ms ease-in-out;
   --table-width: scale(0);
@@ -333,12 +333,11 @@ div.right-main.visible {
   margin-left: 18px;
   gap: 24px;
 }
-.right-main > .table1,
-.table2 {
+.right-main > .table1{
   display: flex;
   flex-direction: column;
   gap: 18px;
-  background: #a7bcb9;
+  background: #005c4f2b;
   width: 90%;
   height: 220px;
   align-items: flex-start;
