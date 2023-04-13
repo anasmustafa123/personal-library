@@ -139,6 +139,19 @@ div.logo-container > h1.logo-name {
 .left-main > div.main-grid-item > div {
   font-size: 20px;
 }
+.left-main > div.main-grid-item > .title {
+  --title-font-size: 25px;
+  font-size: var(--title-font-size);
+  font-weight: bold;
+}
+.left-main > div.main-grid-item > .title::after {
+  content: '"';
+  font-weight: bold;
+}
+.left-main > div.main-grid-item > .title::before {
+  content: '"';
+  font-weight: bold;
+}
 
 .quotes {
   background-color: white;
@@ -349,7 +362,4 @@ div.right-main.visible {
   text-decoration: dotted;
   font-style: italic;
   font-size: 17px;
-}
-.left-main > div.main-grid-item > .title {
-  font-weight: bold;
 }
